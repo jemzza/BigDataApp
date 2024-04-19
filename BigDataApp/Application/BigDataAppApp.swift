@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct BigDataAppApp: App {
+    @StateObject var dataListViewModel = DataListViewModel(itemsGateway: JSONItemsGateway())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DataListView(viewModel: dataListViewModel)
         }
     }
 }

@@ -14,6 +14,14 @@
 		7D739F342BD13F7600E98E5C /* BigDataAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F332BD13F7600E98E5C /* BigDataAppTests.swift */; };
 		7D739F3E2BD13F7600E98E5C /* BigDataAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F3D2BD13F7600E98E5C /* BigDataAppUITests.swift */; };
 		7D739F402BD13F7600E98E5C /* BigDataAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F3F2BD13F7600E98E5C /* BigDataAppUITestsLaunchTests.swift */; };
+		7D739F4E2BD1410300E98E5C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F4D2BD1410300E98E5C /* Item.swift */; };
+		7D739F522BD1431200E98E5C /* DataListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F512BD1431200E98E5C /* DataListViewModel.swift */; };
+		7D739F562BD1475700E98E5C /* DataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F552BD1475700E98E5C /* DataListView.swift */; };
+		7D739F592BD1820A00E98E5C /* DataListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F582BD1820A00E98E5C /* DataListViewModelTests.swift */; };
+		7D739F5B2BD186D100E98E5C /* MockItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F5A2BD186D100E98E5C /* MockItems.json */; };
+		7D739F5E2BD1880400E98E5C /* JSONItemsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F5D2BD1880400E98E5C /* JSONItemsGateway.swift */; };
+		7D739F612BD18A1F00E98E5C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F602BD18A1F00E98E5C /* AppError.swift */; };
+		7D9D72452BD2E21D00F8F44A /* ItemKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9D72442BD2E21D00F8F44A /* ItemKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		7D739F392BD13F7600E98E5C /* BigDataAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigDataAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D739F3D2BD13F7600E98E5C /* BigDataAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDataAppUITests.swift; sourceTree = "<group>"; };
 		7D739F3F2BD13F7600E98E5C /* BigDataAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDataAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D739F4D2BD1410300E98E5C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7D739F512BD1431200E98E5C /* DataListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListViewModel.swift; sourceTree = "<group>"; };
+		7D739F552BD1475700E98E5C /* DataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListView.swift; sourceTree = "<group>"; };
+		7D739F582BD1820A00E98E5C /* DataListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataListViewModelTests.swift; sourceTree = "<group>"; };
+		7D739F5A2BD186D100E98E5C /* MockItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockItems.json; sourceTree = "<group>"; };
+		7D739F5D2BD1880400E98E5C /* JSONItemsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItemsGateway.swift; sourceTree = "<group>"; };
+		7D739F602BD18A1F00E98E5C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		7D9D72442BD2E21D00F8F44A /* ItemKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +110,11 @@
 		7D739F212BD13F7400E98E5C /* BigDataApp */ = {
 			isa = PBXGroup;
 			children = (
-				7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */,
-				7D739F242BD13F7400E98E5C /* ContentView.swift */,
-				7D739F262BD13F7500E98E5C /* Assets.xcassets */,
+				7D9D72432BD2950A00F8F44A /* Application */,
+				7D9D72412BD294A100F8F44A /* Presentation */,
+				7D739F5C2BD187F000E98E5C /* Gateways */,
+				7D739F4C2BD140F900E98E5C /* Domain */,
+				7D739F5F2BD1886100E98E5C /* Resources */,
 				7D739F282BD13F7500E98E5C /* Preview Content */,
 			);
 			path = BigDataApp;
@@ -114,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				7D739F332BD13F7600E98E5C /* BigDataAppTests.swift */,
+				7D739F572BD181C600E98E5C /* ViewModels */,
 			);
 			path = BigDataAppTests;
 			sourceTree = "<group>";
@@ -125,6 +144,91 @@
 				7D739F3F2BD13F7600E98E5C /* BigDataAppUITestsLaunchTests.swift */,
 			);
 			path = BigDataAppUITests;
+			sourceTree = "<group>";
+		};
+		7D739F4C2BD140F900E98E5C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				7D9D723F2BD2946B00F8F44A /* Entities */,
+				7D9D72402BD2947A00F8F44A /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		7D739F4F2BD142E900E98E5C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F512BD1431200E98E5C /* DataListViewModel.swift */,
+				7D739F602BD18A1F00E98E5C /* AppError.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7D739F502BD142F800E98E5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F242BD13F7400E98E5C /* ContentView.swift */,
+				7D739F552BD1475700E98E5C /* DataListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7D739F572BD181C600E98E5C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F582BD1820A00E98E5C /* DataListViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7D739F5C2BD187F000E98E5C /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F5D2BD1880400E98E5C /* JSONItemsGateway.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		7D739F5F2BD1886100E98E5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F262BD13F7500E98E5C /* Assets.xcassets */,
+				7D739F5A2BD186D100E98E5C /* MockItems.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7D9D723F2BD2946B00F8F44A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F4D2BD1410300E98E5C /* Item.swift */,
+				7D9D72442BD2E21D00F8F44A /* ItemKey.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		7D9D72402BD2947A00F8F44A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		7D9D72412BD294A100F8F44A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F4F2BD142E900E98E5C /* ViewModels */,
+				7D739F502BD142F800E98E5C /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		7D9D72432BD2950A00F8F44A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D739F2A2BD13F7500E98E5C /* Preview Assets.xcassets in Resources */,
+				7D739F5B2BD186D100E98E5C /* MockItems.json in Resources */,
 				7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +362,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9D72452BD2E21D00F8F44A /* ItemKey.swift in Sources */,
+				7D739F4E2BD1410300E98E5C /* Item.swift in Sources */,
+				7D739F5E2BD1880400E98E5C /* JSONItemsGateway.swift in Sources */,
 				7D739F252BD13F7400E98E5C /* ContentView.swift in Sources */,
+				7D739F522BD1431200E98E5C /* DataListViewModel.swift in Sources */,
 				7D739F232BD13F7400E98E5C /* BigDataAppApp.swift in Sources */,
+				7D739F562BD1475700E98E5C /* DataListView.swift in Sources */,
+				7D739F612BD18A1F00E98E5C /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D739F592BD1820A00E98E5C /* DataListViewModelTests.swift in Sources */,
 				7D739F342BD13F7600E98E5C /* BigDataAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
