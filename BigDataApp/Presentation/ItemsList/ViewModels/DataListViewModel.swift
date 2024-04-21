@@ -8,6 +8,8 @@
 import Combine
 import Foundation
 
+typealias DataListViewModelInterface = DataListInputable & DataListOutputable
+
 protocol DataListInputable: ObservableObject {
     
     var searchName: String { get set }
@@ -28,7 +30,7 @@ protocol DataListOutputable: ObservableObject {
     var activeAlert: ActiveAlert? { get }
 }
 
-final class DataListViewModel: DataListOutputable, DataListInputable {
+final class DataListViewModel: DataListViewModelInterface {
     
     @Published var allItems: [Item] = [] {
         didSet {
