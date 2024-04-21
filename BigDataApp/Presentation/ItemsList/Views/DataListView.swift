@@ -26,69 +26,90 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
     
     var body: some View {
         NavigationStack {
-            if !isCompact {
-                Table(of: Item.self, sortOrder: $viewModel.sortOrder) {
-                    TableColumn(ItemKey.id.description, value: \.id.description)
-                    TableColumn(ItemKey.name.description, value: \.name)
-                    TableColumn(ItemKey.number.description, value: \.number.description)
-                } rows: {
-                    ForEach($viewModel.filteredItems) { item in
-                        TableRow(item.wrappedValue)
-                            .contextMenu {
-                                contextMenuView(item.wrappedValue)
-                            }
-                        
-                    }
+            ZStack {
+                if !isCompact {
+                    macosContentView()
+                } else {
+                    iosContentView()
                 }
-                .searchable(text: $viewModel.searchName)
-                .refreshable {
-                    viewModel.updateItems()
+                if viewModel.allItems.isEmpty {
+                    ProgressView()
+                        .padding()
                 }
-                .padding(16)
-            } else {
-                List {
-                    Section {
-                        ForEach($viewModel.filteredItems) { item in
-                            VStack {
-                                rowView(item.wrappedValue)
-                                    .onAppear {
-                                        if viewModel.filteredItems.last == item.wrappedValue {
-                                            viewModel.updateItems()
-                                        }
-                                    }
-                            }
-                        }
-                    } header: {
-                        headerView()
-                    }
-                }
-                .listRowSeparator(.visible)
-                .listStyle(.plain)
-                .listRowInsets(
-                    EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16)
-                )
-                .refreshable {
-                    viewModel.updateItems()
-                }
-                .searchable(text: $viewModel.searchName)
             }
         }
         .alert(isPresented: $viewModel.isFailureAlertShowing) {
             if case .error(let error) = viewModel.activeAlert  {
                 return Alert(
                     title:  Text(error.localizedDescription),
-                    dismissButton: Alert.Button.default(Text("Ok"), action: { viewModel.clearAlerts()} )
+                    dismissButton: Alert.Button.default(Text(R.string.main.okTitle()), action: { viewModel.clearAlerts()} )
                 )
             } else {
                 return Alert(
-                    title:  Text("Error"),
-                    dismissButton: Alert.Button.default(Text("Ok"), action: { viewModel.clearAlerts()} )
+                    title:  Text(R.string.main.errorTitle()),
+                    dismissButton: Alert.Button.default(Text(R.string.main.okTitle()), action: { viewModel.clearAlerts()} )
                 )
             }
         }
         .onAppear {
             viewModel.viewWillAppear()
         }
+    }
+    
+    private func macosContentView() -> some View {
+        VStack(alignment: .leading) {
+            Text(R.string.main.title())
+                .font(.title)
+                .fontWeight(.heavy)
+            Table(of: Item.self, sortOrder: $viewModel.sortOrder) {
+                TableColumn(ItemKey.id.description, value: \.id.description)
+                    .width(max: 50)
+                TableColumn(ItemKey.name.description, value: \.name)
+                TableColumn(ItemKey.number.description, value: \.number.description)
+                    .width(max: 140)
+            } rows: {
+                ForEach($viewModel.filteredItems) { item in
+                    TableRow(item.wrappedValue)
+                        .contextMenu {
+                            contextMenuView(item.wrappedValue)
+                        }
+                    
+                }
+            }
+            .searchable(text: $viewModel.searchName)
+            .refreshable {
+                viewModel.updateItems()
+            }
+        }
+        .padding(16)
+    }
+    
+    private func iosContentView() -> some View {
+        List {
+            Section {
+                ForEach($viewModel.filteredItems) { item in
+                    rowView(item.wrappedValue)
+                        .onAppear {
+                            if viewModel.filteredItems.last == item.wrappedValue {
+                                viewModel.updateItems()
+                            }
+                        }
+                    
+                    
+                }
+            } header: {
+                headerView()
+            }
+        }
+        .listRowSeparator(viewModel.allItems.isEmpty ? .hidden : .visible)
+        .listStyle(.plain)
+        .listRowInsets(
+            EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16)
+        )
+        .refreshable {
+            viewModel.updateItems()
+        }
+        .searchable(text: $viewModel.searchName)
     }
     
     @ViewBuilder private func contextMenuView(_ item: Item) -> some View {
@@ -122,7 +143,7 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
     
     @ViewBuilder private func headerView() -> some View {
         VStack(alignment: .leading) {
-            Text("Big Data App")
+            Text(R.string.main.title())
                 .font(.title)
             HStack(spacing: 16) {
                 ForEach(ItemKey.allCases) { key in

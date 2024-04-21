@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7D739F232BD13F7400E98E5C /* BigDataAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */; };
-		7D739F252BD13F7400E98E5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F242BD13F7400E98E5C /* ContentView.swift */; };
 		7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F262BD13F7500E98E5C /* Assets.xcassets */; };
 		7D739F2A2BD13F7500E98E5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F292BD13F7500E98E5C /* Preview Assets.xcassets */; };
 		7D739F342BD13F7600E98E5C /* BigDataAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F332BD13F7600E98E5C /* BigDataAppTests.swift */; };
@@ -37,6 +36,10 @@
 		7DEF5A5C2BD56D59008A2683 /* ItemsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF5A5B2BD56D59008A2683 /* ItemsDIContainer.swift */; };
 		7DEF5A5E2BD586F8008A2683 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF5A5D2BD586F8008A2683 /* AppFlowCoordinator.swift */; };
 		7DEF5A612BD58830008A2683 /* ItemsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF5A602BD58830008A2683 /* ItemsFlowCoordinator.swift */; };
+		7DEF5A652BD598E7008A2683 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 7DEF5A642BD598E7008A2683 /* RswiftLibrary */; };
+		7DEF5A6C2BD5999C008A2683 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF5A6A2BD5999C008A2683 /* Main.strings */; };
+		7DEF5A6F2BD59B53008A2683 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF5A6D2BD59B53008A2683 /* Errors.strings */; };
+		7DEF5A732BD59CCA008A2683 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF5A722BD59CCA008A2683 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,6 @@
 /* Begin PBXFileReference section */
 		7D739F1F2BD13F7400E98E5C /* BigDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDataAppApp.swift; sourceTree = "<group>"; };
-		7D739F242BD13F7400E98E5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7D739F262BD13F7500E98E5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D739F292BD13F7500E98E5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7D739F2F2BD13F7600E98E5C /* BigDataAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigDataAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,11 @@
 		7DEF5A5B2BD56D59008A2683 /* ItemsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsDIContainer.swift; sourceTree = "<group>"; };
 		7DEF5A5D2BD586F8008A2683 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		7DEF5A602BD58830008A2683 /* ItemsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFlowCoordinator.swift; sourceTree = "<group>"; };
+		7DEF5A6B2BD5999C008A2683 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7DEF5A6E2BD59B53008A2683 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
+		7DEF5A722BD59CCA008A2683 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7DEF5A742BD59D16008A2683 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		7DEF5A752BD59D17008A2683 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D82DD1D2BD3F36700153E42 /* FirebaseFirestoreSwift in Frameworks */,
+				7DEF5A652BD598E7008A2683 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +207,6 @@
 		7D739F502BD142F800E98E5C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7D739F242BD13F7400E98E5C /* ContentView.swift */,
 				7D739F552BD1475700E98E5C /* DataListView.swift */,
 			);
 			path = Views;
@@ -225,10 +232,12 @@
 		7D739F5F2BD1886100E98E5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7DEF5A692BD5996D008A2683 /* Localization */,
 				7D739F262BD13F7500E98E5C /* Assets.xcassets */,
 				7D739F5A2BD186D100E98E5C /* MockItems.json */,
 				7D82DD2E2BD4093300153E42 /* TopIncomeFilms.json */,
 				7D82DD262BD3F71100153E42 /* GoogleService-Info.plist */,
+				7DEF5A722BD59CCA008A2683 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -315,6 +324,15 @@
 			path = ItemsList;
 			sourceTree = "<group>";
 		};
+		7DEF5A692BD5996D008A2683 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7DEF5A6A2BD5999C008A2683 /* Main.strings */,
+				7DEF5A6D2BD59B53008A2683 /* Errors.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,10 +347,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				7DEF5A672BD59909008A2683 /* PBXTargetDependency */,
 			);
 			name = BigDataApp;
 			packageProductDependencies = (
 				7D82DD1C2BD3F36700153E42 /* FirebaseFirestoreSwift */,
+				7DEF5A642BD598E7008A2683 /* RswiftLibrary */,
 			);
 			productName = BigDataApp;
 			productReference = 7D739F1F2BD13F7400E98E5C /* BigDataApp.app */;
@@ -404,10 +424,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7D739F162BD13F7400E98E5C;
 			packageReferences = (
 				7D82DD1B2BD3F36700153E42 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7DEF5A632BD598E7008A2683 /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = 7D739F202BD13F7400E98E5C /* Products */;
 			projectDirPath = "";
@@ -426,8 +448,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D739F2A2BD13F7500E98E5C /* Preview Assets.xcassets in Resources */,
+				7DEF5A6C2BD5999C008A2683 /* Main.strings in Resources */,
+				7DEF5A732BD59CCA008A2683 /* Launch Screen.storyboard in Resources */,
 				7D739F5B2BD186D100E98E5C /* MockItems.json in Resources */,
 				7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */,
+				7DEF5A6F2BD59B53008A2683 /* Errors.strings in Resources */,
 				7D82DD2F2BD4093300153E42 /* TopIncomeFilms.json in Resources */,
 				7D82DD272BD3F71100153E42 /* GoogleService-Info.plist in Resources */,
 			);
@@ -460,7 +485,6 @@
 				7D739F5E2BD1880400E98E5C /* JSONItemsGateway.swift in Sources */,
 				7DEF5A502BD43BAB008A2683 /* AppDelegate.swift in Sources */,
 				7DEF5A532BD446A8008A2683 /* Query+Extensions.swift in Sources */,
-				7D739F252BD13F7400E98E5C /* ContentView.swift in Sources */,
 				7D739F522BD1431200E98E5C /* DataListViewModel.swift in Sources */,
 				7D739F232BD13F7400E98E5C /* BigDataAppApp.swift in Sources */,
 				7D82DD2B2BD4035000153E42 /* ActiveAlert.swift in Sources */,
@@ -508,7 +532,32 @@
 			target = 7D739F1E2BD13F7400E98E5C /* BigDataApp */;
 			targetProxy = 7D739F3A2BD13F7600E98E5C /* PBXContainerItemProxy */;
 		};
+		7DEF5A672BD59909008A2683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 7DEF5A662BD59909008A2683 /* RswiftGenerateInternalResources */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7DEF5A6A2BD5999C008A2683 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DEF5A6B2BD5999C008A2683 /* en */,
+				7DEF5A742BD59D16008A2683 /* ru */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		7DEF5A6D2BD59B53008A2683 /* Errors.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7DEF5A6E2BD59B53008A2683 /* en */,
+				7DEF5A752BD59D17008A2683 /* ru */,
+			);
+			name = Errors.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7D739F412BD13F7600E98E5C /* Debug */ = {
@@ -516,6 +565,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -563,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -579,6 +629,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -620,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -641,11 +692,14 @@
 				DEVELOPMENT_TEAM = 946NQ7ZBS2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Films Income";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -670,11 +724,14 @@
 				DEVELOPMENT_TEAM = 946NQ7ZBS2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Films Income";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -814,6 +871,14 @@
 				minimumVersion = 10.24.0;
 			};
 		};
+		7DEF5A632BD598E7008A2683 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -821,6 +886,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7D82DD1B2BD3F36700153E42 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		7DEF5A642BD598E7008A2683 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DEF5A632BD598E7008A2683 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		7DEF5A662BD59909008A2683 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DEF5A632BD598E7008A2683 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = "plugin:RswiftGenerateInternalResources";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

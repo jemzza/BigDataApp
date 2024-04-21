@@ -19,11 +19,11 @@ enum AppError: Error, LocalizedError, Identifiable {
         
         switch self {
             case .unknown:
-                return "Unknown"
+                return R.string.errors.unknown()
             case .custom(let info):
                 return info
             case .other(let error):
-                return "Other error \(error.localizedDescription)"
+                return R.string.errors.other("\(error.localizedDescription)")
         }
     }
 }

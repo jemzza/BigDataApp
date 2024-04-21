@@ -29,11 +29,11 @@ enum ItemKey: CaseIterable, Identifiable {
     var description: String {
         switch self {
             case .id:
-                return "ID"
+                return R.string.main.itemId()
             case .name:
-                return "Name"
+                return R.string.main.itemName()
             case .number:
-                return "Number"
+                return R.string.main.itemNumber()
                 
         }
     }

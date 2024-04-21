@@ -1,0 +1,10 @@
+/* 
+  Errors.strings
+  BigDataApp
+
+  Created by Main on 21.04.2024.
+  
+*/
+
+"#unknown" = "Неизвестно";
+"#other" = "Другая ошибка %@";
