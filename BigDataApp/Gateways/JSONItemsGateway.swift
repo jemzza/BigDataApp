@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol ItemsFetchable: ObservableObject {
-    
-    var itemsPublisher: Published<[Item]>.Publisher { get }
-    
-    func fetchItems() async throws
-}
-
 final class JSONItemsGateway: ItemsFetchable {
     
     var itemsPublisher: Published<[Item]>.Publisher { $items }

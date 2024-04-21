@@ -10,15 +10,22 @@ import Foundation
 
 protocol DataListInputable: ObservableObject {
     
-    var filteredItems: [Item] { get set }
     var searchName: String { get set }
     var sortOrder: [KeyPathComparator<Item>] { get set }
+    
+    func viewWillAppear()
+    func updateItems()
+    func changeSortOrder(with itemKey: ItemKey)
+    func clearAlerts()
 }
 
 protocol DataListOutputable: ObservableObject {
     
     var allItems: [Item] { get }
-    var error: Error? { get }
+    var filteredItems: [Item] { get set }
+    var isFailureAlertShowing: Bool { get set }
+    var isSuccessAlertShowing: Bool { get set }
+    var activeAlert: ActiveAlert? { get }
 }
 
 final class DataListViewModel: DataListOutputable, DataListInputable {
@@ -38,7 +45,22 @@ final class DataListViewModel: DataListOutputable, DataListInputable {
         }
     }
     
-    @Published var error: Error? = nil
+    @Published var isFailureAlertShowing = false
+    @Published var isSuccessAlertShowing = false
+    
+    @Published var activeAlert: ActiveAlert? = nil {
+        willSet {
+            switch newValue {
+                case .none:
+                    isFailureAlertShowing = false
+                    isSuccessAlertShowing = false
+                case .error(_):
+                    isFailureAlertShowing = true
+                case .success(_):
+                    isSuccessAlertShowing = true
+            }
+        }
+    }
     
     private let itemsGateway: any ItemsFetchable
     
@@ -50,16 +72,6 @@ final class DataListViewModel: DataListOutputable, DataListInputable {
     init(itemsGateway: any ItemsFetchable) {
         self.itemsGateway = itemsGateway
         
-        Task {
-            do {
-                try await itemsGateway.fetchItems()
-            } catch let error {
-                Task { @MainActor [weak self] in
-                    self?.error = error
-                }
-            }
-        }
-        
         itemsGateway.itemsPublisher
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] in self?.allItems = $0 })
@@ -70,6 +82,37 @@ final class DataListViewModel: DataListOutputable, DataListInputable {
                 self?.filteredItems.sort(using: newOrder)
             }
             .store(in: &subscriptions)
+    }
+    
+    func viewWillAppear() {
+        updateItems()
+    }
+    
+    func updateItems() {
+        Task(priority: .userInitiated) {
+            do {
+                try await itemsGateway.fetchItems()
+            } catch let error {
+                Task { @MainActor [weak self] in
+                    self?.activeAlert = .error(error)
+                }
+            }
+        }
+    }
+    
+    func clearAlerts() {
+        activeAlert = nil
+    }
+    
+    func changeSortOrder(with itemKey: ItemKey) {
+        var keyPathComparator = itemKey.keyPathComparator
+        
+        if keyPathComparator.keyPath == sortOrder[0].keyPath {
+            let order: SortOrder = sortOrder[0].order == .forward ? .reverse : .forward
+            keyPathComparator.order = order
+        }
+        
+        sortOrder = [keyPathComparator]
     }
     
     private func filterItemsByName(with text: String) {
