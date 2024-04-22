@@ -190,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				7D9D723F2BD2946B00F8F44A /* Entities */,
-				7D9D72402BD2947A00F8F44A /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -260,13 +259,6 @@
 				7D82DD2A2BD4035000153E42 /* ActiveAlert.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		7D9D72402BD2947A00F8F44A /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		7D9D72412BD294A100F8F44A /* Presentation */ = {

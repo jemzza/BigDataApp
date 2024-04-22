@@ -12,5 +12,6 @@ protocol ItemsFetchable: ObservableObject {
     
     var itemsPublisher: Published<[Item]>.Publisher { get }
     
-    func fetchItems() async throws
+    func fetchItems(_ count: Int, searchText: String, filteredBy: Item.CodingKeys, order: SortOrder) async throws
+    func clearItems()
 }

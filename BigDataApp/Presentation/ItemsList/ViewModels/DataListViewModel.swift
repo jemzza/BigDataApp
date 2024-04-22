@@ -16,7 +16,7 @@ protocol DataListInputable: ObservableObject {
     var sortOrder: [KeyPathComparator<Item>] { get set }
     
     func viewWillAppear()
-    func updateItems()
+    func refreshItems()
     func changeSortOrder(with itemKey: ItemKey)
     func clearAlerts()
 }
@@ -40,12 +40,13 @@ final class DataListViewModel: DataListViewModelInterface {
     
     @Published var filteredItems: [Item] = []
     
-    @Published var sortOrder: [KeyPathComparator<Item>] = [KeyPathComparator(\Item.name)]
+    @Published var sortOrder: [KeyPathComparator<Item>] = [KeyPathComparator(\Item.id)]
     @Published var searchName: String = "" {
-        willSet {
-            filterItemsByName(with: newValue)
+        didSet {
+            searchNameSubject.send(searchName)
         }
     }
+    
     
     @Published var isFailureAlertShowing = false
     @Published var isSuccessAlertShowing = false
@@ -65,9 +66,10 @@ final class DataListViewModel: DataListViewModelInterface {
     }
     
     private let itemsGateway: any ItemsFetchable
+    private var searchNameSubject = PassthroughSubject<String, Never>()
     
-    private var currentPage = 0
-    private let itemsPerPage = 10
+    private let itemsPerRequest = 25
+    private let debounceDelay = 0.5
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -84,16 +86,50 @@ final class DataListViewModel: DataListViewModelInterface {
                 self?.filteredItems.sort(using: newOrder)
             }
             .store(in: &subscriptions)
+        
+        searchNameSubject
+            .debounce(for: .seconds(debounceDelay), scheduler: DispatchQueue.global())
+            .share()
+            .sink { [weak self] text in
+                self?.filterItemsByName(with: text)
+            }
+            .store(in: &subscriptions)
     }
     
     func viewWillAppear() {
         updateItems()
     }
     
-    func updateItems() {
+    func refreshItems() {
+        updateItems()
+    }
+    
+    private func updateItems(with text: String = "") {
         Task(priority: .userInitiated) {
             do {
-                try await itemsGateway.fetchItems()
+                let filter: Item.CodingKeys
+                
+                if let comparator = sortOrder.last {
+                    switch comparator {
+                        case KeyPathComparator(\Item.id), KeyPathComparator(\Item.id, order: .reverse):
+                            filter = .id
+                        case KeyPathComparator(\Item.name), KeyPathComparator(\Item.name, order: .reverse):
+                            filter = .name
+                        case KeyPathComparator(\Item.number), KeyPathComparator(\Item.number, order: .reverse):
+                            filter = .number
+                        default:
+                            filter = .id
+                    }
+                } else {
+                    filter = .id
+                }
+                
+                try await itemsGateway.fetchItems(
+                    itemsPerRequest,
+                    searchText: text,
+                    filteredBy: filter,
+                    order: sortOrder.last?.order ?? sortOrder[0].order
+                )
             } catch let error {
                 Task { @MainActor [weak self] in
                     self?.activeAlert = .error(error)
@@ -115,6 +151,9 @@ final class DataListViewModel: DataListViewModelInterface {
         }
         
         sortOrder = [keyPathComparator]
+        
+        itemsGateway.clearItems()
+        updateItems()
     }
     
     private func filterItemsByName(with text: String) {

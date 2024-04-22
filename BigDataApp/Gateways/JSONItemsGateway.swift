@@ -12,7 +12,7 @@ final class JSONItemsGateway: ItemsFetchable {
     var itemsPublisher: Published<[Item]>.Publisher { $items }
     @Published private var items: [Item] = []
     
-    func fetchItems() async throws {
+    func fetchItems(_ count: Int, searchText: String, filteredBy: Item.CodingKeys, order: SortOrder) async throws {
         if let fileURL = Bundle.main.url(forResource: "MockItems", withExtension: "json") {
             do {
                 let jsonData = try Data(contentsOf: fileURL)
@@ -27,4 +27,6 @@ final class JSONItemsGateway: ItemsFetchable {
             throw AppError.custom(info: "JSON file not found")
         }
     }
+    
+    func clearItems() { }
 }

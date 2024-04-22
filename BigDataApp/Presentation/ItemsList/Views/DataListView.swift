@@ -27,11 +27,8 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
     var body: some View {
         NavigationStack {
             ZStack {
-                if !isCompact {
-                    macosContentView()
-                } else {
-                    iosContentView()
-                }
+                iosContentView()
+                
                 if viewModel.allItems.isEmpty {
                     ProgressView()
                         .padding()
@@ -70,15 +67,11 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
             } rows: {
                 ForEach($viewModel.filteredItems) { item in
                     TableRow(item.wrappedValue)
-                        .contextMenu {
-                            contextMenuView(item.wrappedValue)
-                        }
-                    
                 }
             }
             .searchable(text: $viewModel.searchName)
             .refreshable {
-                viewModel.updateItems()
+                viewModel.refreshItems()
             }
         }
         .padding(16)
@@ -88,14 +81,12 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
         List {
             Section {
                 ForEach($viewModel.filteredItems) { item in
-                    rowView(item.wrappedValue)
+                    cellView(item.wrappedValue)
                         .onAppear {
                             if viewModel.filteredItems.last == item.wrappedValue {
-                                viewModel.updateItems()
+                                viewModel.refreshItems()
                             }
                         }
-                    
-                    
                 }
             } header: {
                 headerView()
@@ -107,26 +98,12 @@ struct DataListView<DataListInterface>: View where DataListInterface: DataListOu
             EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16)
         )
         .refreshable {
-            viewModel.updateItems()
+            viewModel.refreshItems()
         }
         .searchable(text: $viewModel.searchName)
     }
     
-    @ViewBuilder private func contextMenuView(_ item: Item) -> some View {
-        Button("Open") {
-            print("Opened")
-        }
-        Divider()
-        Button(action: {
-            print("Item deleted")
-        }, label: {
-            Text("Delete")
-        })
-        .foregroundColor(.white)
-        .background(.red)
-    }
-    
-    @ViewBuilder private func rowView(_ item: Item) -> some View {
+    @ViewBuilder private func cellView(_ item: Item) -> some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("\(item.id)")
