@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D6F90052BD6B5C5003034F1 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F90042BD6B5C5003034F1 /* String+Extensions.swift */; };
+		7D6F90082BD6C40C003034F1 /* PREVIEW.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7D6F90072BD6C40C003034F1 /* PREVIEW.gif */; };
 		7D739F232BD13F7400E98E5C /* BigDataAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */; };
 		7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F262BD13F7500E98E5C /* Assets.xcassets */; };
 		7D739F2A2BD13F7500E98E5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F292BD13F7500E98E5C /* Preview Assets.xcassets */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		7D6F90042BD6B5C5003034F1 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		7D6F90072BD6C40C003034F1 /* PREVIEW.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PREVIEW.gif; sourceTree = "<group>"; };
 		7D739F1F2BD13F7400E98E5C /* BigDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDataAppApp.swift; sourceTree = "<group>"; };
 		7D739F262BD13F7500E98E5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,8 @@
 		7D739F162BD13F7400E98E5C = {
 			isa = PBXGroup;
 			children = (
+				7DEF12552BD6937200018104 /* README.md */,
+				7D6F90072BD6C40C003034F1 /* PREVIEW.gif */,
 				7D739F212BD13F7400E98E5C /* BigDataApp */,
 				7D739F322BD13F7600E98E5C /* BigDataAppTests */,
 				7D739F3C2BD13F7600E98E5C /* BigDataAppUITests */,
@@ -159,7 +163,6 @@
 				7DEF5A512BD44697008A2683 /* Extensions */,
 				7D739F5F2BD1886100E98E5C /* Resources */,
 				7D739F282BD13F7500E98E5C /* Preview Content */,
-				7DEF12552BD6937200018104 /* README.md */,
 			);
 			path = BigDataApp;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				7DEF5A732BD59CCA008A2683 /* Launch Screen.storyboard in Resources */,
 				7D739F5B2BD186D100E98E5C /* MockItems.json in Resources */,
 				7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */,
+				7D6F90082BD6C40C003034F1 /* PREVIEW.gif in Resources */,
 				7DEF5A6F2BD59B53008A2683 /* Errors.strings in Resources */,
 				7D82DD2F2BD4093300153E42 /* TopIncomeFilms.json in Resources */,
 				7D82DD272BD3F71100153E42 /* GoogleService-Info.plist in Resources */,
