@@ -69,7 +69,7 @@ final class DataListViewModel: DataListViewModelInterface {
     private var searchNameSubject = PassthroughSubject<String, Never>()
     
     private let itemsPerRequest = 25
-    private let debounceDelay = 0.5
+    private let debounceDelay = 1.0
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -91,7 +91,8 @@ final class DataListViewModel: DataListViewModelInterface {
             .debounce(for: .seconds(debounceDelay), scheduler: DispatchQueue.global())
             .share()
             .sink { [weak self] text in
-                self?.filterItemsByName(with: text)
+                self?.itemsGateway.clearItems()
+                self?.updateItems(with: text)
             }
             .store(in: &subscriptions)
     }
@@ -101,7 +102,7 @@ final class DataListViewModel: DataListViewModelInterface {
     }
     
     func refreshItems() {
-        updateItems()
+        updateItems(with: searchName)
     }
     
     private func updateItems(with text: String = "") {
@@ -153,7 +154,7 @@ final class DataListViewModel: DataListViewModelInterface {
         sortOrder = [keyPathComparator]
         
         itemsGateway.clearItems()
-        updateItems()
+        updateItems(with: searchName)
     }
     
     private func filterItemsByName(with text: String) {

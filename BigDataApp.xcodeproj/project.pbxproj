@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D6F90052BD6B5C5003034F1 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F90042BD6B5C5003034F1 /* String+Extensions.swift */; };
 		7D739F232BD13F7400E98E5C /* BigDataAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */; };
 		7D739F272BD13F7500E98E5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F262BD13F7500E98E5C /* Assets.xcassets */; };
 		7D739F2A2BD13F7500E98E5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D739F292BD13F7500E98E5C /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D6F90042BD6B5C5003034F1 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7D739F1F2BD13F7400E98E5C /* BigDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D739F222BD13F7400E98E5C /* BigDataAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDataAppApp.swift; sourceTree = "<group>"; };
 		7D739F262BD13F7500E98E5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		7D82DD2A2BD4035000153E42 /* ActiveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveAlert.swift; sourceTree = "<group>"; };
 		7D82DD2E2BD4093300153E42 /* TopIncomeFilms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TopIncomeFilms.json; sourceTree = "<group>"; };
 		7D9D72442BD2E21D00F8F44A /* ItemKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKey.swift; sourceTree = "<group>"; };
+		7DEF12552BD6937200018104 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7DEF5A4F2BD43BAB008A2683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DEF5A522BD446A8008A2683 /* Query+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+Extensions.swift"; sourceTree = "<group>"; };
 		7DEF5A542BD44982008A2683 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 				7DEF5A512BD44697008A2683 /* Extensions */,
 				7D739F5F2BD1886100E98E5C /* Resources */,
 				7D739F282BD13F7500E98E5C /* Preview Content */,
+				7DEF12552BD6937200018104 /* README.md */,
 			);
 			path = BigDataApp;
 			sourceTree = "<group>";
@@ -222,8 +226,8 @@
 		7D739F5C2BD187F000E98E5C /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				7D739F5D2BD1880400E98E5C /* JSONItemsGateway.swift */,
 				7D82DD1F2BD3F3AF00153E42 /* FirebaseGateway.swift */,
+				7D739F5D2BD1880400E98E5C /* JSONItemsGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -253,10 +257,10 @@
 		7D9D723F2BD2946B00F8F44A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				7D82DD2A2BD4035000153E42 /* ActiveAlert.swift */,
 				7D739F4D2BD1410300E98E5C /* Item.swift */,
 				7D9D72442BD2E21D00F8F44A /* ItemKey.swift */,
 				7D82DD282BD3FDFA00153E42 /* ItemsResponse.swift */,
-				7D82DD2A2BD4035000153E42 /* ActiveAlert.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -284,8 +288,9 @@
 		7DEF5A512BD44697008A2683 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7DEF5A522BD446A8008A2683 /* Query+Extensions.swift */,
 				7DEF5A542BD44982008A2683 /* Encodable+Extensions.swift */,
+				7D6F90042BD6B5C5003034F1 /* String+Extensions.swift */,
+				7DEF5A522BD446A8008A2683 /* Query+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D6F90052BD6B5C5003034F1 /* String+Extensions.swift in Sources */,
 				7D9D72452BD2E21D00F8F44A /* ItemKey.swift in Sources */,
 				7D82DD232BD3F3DB00153E42 /* ItemsFetchable.swift in Sources */,
 				7D739F4E2BD1410300E98E5C /* Item.swift in Sources */,

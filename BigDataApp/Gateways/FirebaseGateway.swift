@@ -30,6 +30,12 @@ final class FirebaseGateway: ItemsFetchable {
     
     init() {
         database = Firestore.firestore()
+        
+        /*
+        Task {
+            await importDataToDatabase(fileName: "TopIncomeFilms")
+        }
+        */
     }
     
     static func setup() {
@@ -48,6 +54,10 @@ final class FirebaseGateway: ItemsFetchable {
             order: order,
             snapshot: lastSnapshot
         )
+        
+        if fetchedItems.isEmpty {
+            return
+        }
         
         items.append(contentsOf: items.isEmpty ? fetchedItems[0...] : fetchedItems[1...])
         
@@ -109,8 +119,7 @@ final class FirebaseGateway: ItemsFetchable {
     
     private func getItemsSearchQuery(_ text: String) -> Query {
         return moviesCollection
-            .whereField("name", isGreaterThanOrEqualTo: text)
-            .whereField("name", isLessThanOrEqualTo: text + "\u{F7FF}")
+            .whereField(Item.CodingKeys.searchKeywords.rawValue, arrayContains: text)
     }
     
     private func getItemsQuery() -> Query {

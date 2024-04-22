@@ -11,12 +11,10 @@ import SwiftUI
 struct BigDataAppApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    @StateObject var viewModel = DataListViewModel(itemsGateway: FirebaseGateway())
     
     var body: some Scene {
         
         WindowGroup {
-//            DataListView(viewModel: viewModel)
             delegate.appFlowCoordinator?.start()
         }
     }
